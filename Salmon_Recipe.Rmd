@@ -58,11 +58,11 @@ select_res <- dbFetch(select_q)
 ```{r}
 #| message: false
 #| warning: false
-select_res$IngredientName <- reorder(select_res$IngredientName, select_res$Amount, decreasing = TRUE)
+select_res$IngredientName <- reorder(select_res$IngredientName, select_res$Amount, decreasing = FALSE)
 library(ggplot2)
 
 ggplot(select_res, aes(x = IngredientName, y = Amount, fill = MeasurementDescription)) + 
-         geom_bar(stat = "identity") + labs(title = "How to make a SALMON FILET") +
+         geom_bar(stat = "identity") + labs(title = "How to make a SALMON FILLET") +
          theme_minimal() +
   coord_flip()
 
